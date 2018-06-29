@@ -40,6 +40,9 @@ header {
     background-color: lightslategray;
 }
 
+#conversation > p {
+    padding-top: .3rem;
+}
 
 #my-info {
     background: lightsalmon;

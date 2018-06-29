@@ -100,7 +100,7 @@ $(document).ready(function () {
         let messages = snapshot.val();
         $("#conversation").empty();
         for (let messageIndex in messages) {
-            $("#conversation").prepend(`<p><strong>${messages[messageIndex].time}</strong> [${messages[messageIndex].name}] ${messages[messageIndex].message}</p>`);
+            $("#conversation").prepend(`<p>[${messages[messageIndex].time}] <strong>${messages[messageIndex].name}</strong> > ${messages[messageIndex].message}</p>`);
         }
     });
 
