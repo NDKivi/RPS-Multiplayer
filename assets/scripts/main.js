@@ -13,8 +13,10 @@ const config = {
 };
 firebase.initializeApp(config);
 const childRef = firebase.database().ref().child("RPC/players");
+const chatRef = firebase.database().ref().child("RPC/chat");
 let myKey;
 let isWaiting;
+let myName;
 
 //=============================================================================
 // Events
@@ -43,9 +45,21 @@ $(document).ready(function () {
     // Update the player's name
     $("#submit-player-name").on("click", function (event) {
         event.preventDefault();
-        let myName = $("#player-name").val();
+        myName = $("#player-name").val();
         childRef.child(myKey).update({
             "name": myName
+        });
+    });
+
+    // Update the player's name
+    $("#submit-message").on("click", function (event) {
+        event.preventDefault();
+        let myMessage = $("#message").val();
+        let chatKey = chatRef.push().key;
+        chatRef.child(chatKey).update({
+            name: myName,
+            time: moment().format("h:m a"),
+            message: myMessage
         });
     });
 
@@ -82,12 +96,22 @@ $(document).ready(function () {
         }
     });
 
+    chatRef.on("value", function (snapshot) {
+        let messages = snapshot.val();
+        $("#conversation").empty();
+        for (let messageIndex in messages) {
+            $("#conversation").prepend(`<p><strong>${messages[messageIndex].time}</strong> [${messages[messageIndex].name}] ${messages[messageIndex].message}</p>`);
+        }
+    });
+
+
     //event when updating child
     childRef.on("value", function (snapshot) {
         console.log(snapshot.val());
         let players = snapshot.val();
 
         // Draw your own name, wins, and losses
+        myName = players[myKey].name;
         $("#my-name").text("Name: " + players[myKey].name);
         $("#my-losses").text("Losses: " + players[myKey].losses);
         $("#my-wins").text("Wins: " + players[myKey].wins);
@@ -105,11 +129,10 @@ $(document).ready(function () {
             $("#opponent-losses").text("Losses: " + players[myEnemyKey].losses);
             $("#opponent-wins").text("Wins: " + players[myEnemyKey].wins);
             $("#opponent-ties").text("Ties: " + players[myEnemyKey].ties);
+            $("#opponent-object").empty();
             if (players[myEnemyKey].selectedObject) {
                 $("#opponent-object").append(`<img id="question-mark" src="assets/images/question.png" alt="question mark">`)
-            } else {
-                $("#opponent-object").empty();
-            }
+            } 
         } else {
             handleGameLogic = true;
         }

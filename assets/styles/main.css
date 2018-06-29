@@ -29,6 +29,18 @@ header {
     background: lightseagreen;
 }
 
+
+#chat-form {
+    float: none;
+    width: 100%;
+}
+
+#conversation {
+    width: 100%;
+    background-color: lightslategray;
+}
+
+
 #my-info {
     background: lightsalmon;
     width: 319px;
