@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rock, Paper, Scissors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/main.css" />
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/scripts/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Rock, Paper, Scissors to the Max</h1>
+    </header>
+    <main>
+        <form id="name-form">
+            <label for="player-name">Enter your name:</label>
+            <input id="player-name" type="text">
+            <button id="submit-player-name" type="submit">Submit</button>
+        </form>
+        <div id="my-info">
+            <h3>Me</h3>
+            <p id="my-name"></p>
+            <p id="my-wins"></p>
+            <p id="my-losses"></p>
+            <p id="my-ties"></p>
+        </div>
+        <div id="opponent-info">
+            <h3>My Opponent</h3>
+            <p id="opponent-name"></p>
+            <p id="opponent-wins"></p>
+            <p id="opponent-losses"></p>
+            <p id="opponent-ties"></p>
+        </div>
+        <div id="choices"></div>
+        <div id="selected-object"></div>
+        <div id="opponent-object"></div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

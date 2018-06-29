@@ -1,0 +1,75 @@
+main {
+    width: 640px;
+    margin: auto;
+}
+
+p, h3 {
+    padding: 0 0 0 .3rem;
+    margin: .3rem 0 0 0;
+}
+
+label {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+input {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+header {
+    text-align: center;
+    color: darkgreen;
+}
+
+#name-form {
+    width: 100%;
+    height: 100px;
+    background: lightseagreen;
+}
+
+#my-info {
+    background: lightsalmon;
+    width: 319px;
+    float: left;
+    height: 150px;
+}
+
+#opponent-info {
+    background: lightgreen;
+    width: 319px;
+    float: left;
+    height: 150px;
+}
+
+#choices {
+    background: lightgoldenrodyellow;
+    width: 100%;
+}
+
+#selected-object {
+    width: 319px;
+    height: 220px;
+    background: lightblue;
+    float: left;
+}
+
+#selected-object > img, #opponent-object > img {
+    width: 200px;
+    height: 200px;
+    margin: 10px 59px 10px 59px;
+}
+
+#opponent-object {
+    width: 319px;
+    height: 220px;
+    background: lightcyan;
+    float: left;
+}
+
+.game-image {
+    width: 200px;
+    height: 200px;
+    margin: 8px 4px 8px 4px;
+}
