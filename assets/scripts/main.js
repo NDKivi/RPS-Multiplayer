@@ -143,17 +143,20 @@ $(document).ready(function () {
         enemyChoice = players[myEnemyKey].selectedObject;
         if (myChoice && enemyChoice) {
             if (myChoice === enemyChoice) {
+                alert("Drats!  It's a tie.");
                 let newNum = parseInt(players[myKey].ties);
                 newNum++;
                 childRef.child(myKey).update({ "selectedObject": "", "ties": newNum });
             } else if ((myChoice === "paper" && enemyChoice === "rock")
                 || (myChoice === "rock" && enemyChoice === "scissors")
                 || (myChoice === "scissors" && enemyChoice === "paper")) {
+                alert("Congrats! You won this round.");
                 let newNum = parseInt(players[myKey].wins);
                 newNum++;
                 childRef.child(myKey).update({ "selectedObject": "", "wins": newNum });
             } else {
-                let newNum = parseInt(players[myKey].wins);
+                alert("Sorry!  You lost.  Try harder.")
+                let newNum = parseInt(players[myKey].losses);
                 newNum++;
                 childRef.child(myKey).update({ "selectedObject": "", "losses": newNum });
             }
